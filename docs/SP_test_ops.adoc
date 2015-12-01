@@ -1,0 +1,871 @@
+:numbered:
+:toc:
+
+== IDP
+
+=== Assertion Query
+[R1] Understand AssertionID Request::
+S2c-06:::
+Send AuthnRequest and then an AssertionIDRequest
+
+
+=== Attr/NameFmt
+[R6] Provide attribute name formats of type URI, basic or X500::
+PVP-05:::
+Check if attribute name formats are in the preferred set
+
+
+=== Attr/NamIdFmt
+[R7] Support persistent Nameid format::
+PVP-06:::
+AuthnRequest/Response exchange. NameID format configured in IDP
+
+
+
+
+PVP-08:::
+Issue AuthnRequest from 2 SPs to single IdP for same subject.
+
+
+=== Attribute Query
+[R2] Understand basic attribute query (used in SC-01)::
+S2c-07:::
+Duplicate of S2c-01?
+
+
+
+[R3] Understand basic attribute query (duplicate - used in UC PVP-02, S2c-07)::
+S2c-01:::
+Test attribute query basic request/response
+
+
+=== ECP/MsgFlow
+[R8] Understand AuthnRequest using ECP and PAOS::
+S2c-12:::
+Test basic ECP message flow
+
+
+=== MD/Consumption
+[R10] MD Signature valid::
+MD-02:::
+Provide invalid Signature (IDP)
+
+
+=== MD/Consumption
+[R9] Use only fresh metadata::
+MD-01:::
+Provide expired MD (IDP)
+
+
+=== MD/CertExchange
+[R11] Load signature and TLS certificates from MD::
+MD-03:::
+Required certificates missing in MD (IDP)
+
+
+=== MD/Content
+[R12] Valid roledescriptior exists::
+MD-04:::
+Provide entity without roledescriptor in correct namespace (IDP)
+
+
+=== MD/Content
+[R124] Multiple SP may have same keys::
+MD-09:::
+Understand multiple SPSSODescriptor sharing the same key
+
+
+=== Multi/MsgFlow
+[R13] Understand SP-first LogOutRequest::
+S2c-13:::
+"Authenticate; then Send LogoutRequest, front-channel binding, one SP"
+
+
+=== NamId/NamIdMap
+[R14] Understand basic NameIDMapping request::
+S2c-15:::
+Send basic NameIDMapping request
+
+
+=== NamId/NamIdMap
+[R15] Understand ManageNameID Request to set SP provided ID::
+S2c-14:::
+Send ManageNameID Request to set SP provided ID
+
+
+=== Net/Connect
+[R16] TCP connectivity::
+S2c-16:::
+Verify TCP connectivity (IDP)
+
+
+=== Net/TLS
+[R22] Endpoints accept only TLS connectons::
+NET-01:::
+Connect without TLS (IDP)
+
+
+=== Net/TLS
+[R23] Derive TLS certificate from signed metadata::
+NET-02:::
+Use unauthorized certificate (IDP)
+
+
+=== Net/TLS
+[R24] Accept only valid TLS certificate::
+NET-03:::
+Use invalid certificate (IDP)
+
+
+=== Net/TLS
+[R25] Use only TLS ciphers satisfying ECRYPT Level 5 or better::
+NET-04:::
+Use weak certificate (on different levels of validation path) (IDP)
+
+
+=== SLO/Request
+[R39] Understand SP-first LogOutRequest and logout 2nd SP::
+SLO-05:::
+Send LogoutRequest, front-channel binding, two SP
+
+
+=== SLO/Request
+[R42] Require <LogoutRequest> to be signed::
+SLO-02:::
+Initiate Logout at the IDP - Request signature
+
+
+=== SLO/Response
+[R43] Require <Response> to be signed for the HTTP POST binding::
+SLO-03:::
+Initiate Logout at the IDP - Response signature
+
+
+=== SSO/AuthnRequest
+[R45] Understand ForceAuthn::
+SSO-01:::
+Send AuthnRequest with ForceAuthn=true during valid IDP-Session
+
+
+=== SSO/AuthnRequest
+[R46] Understand POST binding of request::
+PVP-09:::
+Send AuthnRequest using POST binding
+
+
+=== SSO/AuthnRequest
+[R47] Understand Redirect binding of request::
+SSO-03:::
+Understand AuthnRequest using Redirect binding
+
+
+=== SSO/MsgFlow
+[R125] Understand basic AuthnRequest/HTTP-artifact::
+S2c-05:::
+Understand basic AuthnRequest/HTTP-artifact
+
+
+=== SSO/MsgFlow
+[R126] Understand basic AuthnRequest/HTTP-redirect::
+S2c-02:::
+Send basic AuthnRequest/ HTTP-redirect
+
+
+=== SSO/MsgFlow
+[R127] Understand AuthnRequest with specific NameID Policy::
+S2c-11:::
+Send AuthnRequest with specific NameID Policy
+
+
+=== SSO/MsgFlow
+[R128] Understand AuthnRequest/HTTP-POST::
+S2c-08:::
+Send AuthnRequest/HTTP-POST
+
+
+=== SSO/MsgFlow
+[R131] authn_specified_endpoint::
+S2c-04:::
+S2c-04?
+
+
+=== SSO/MsgFlow
+[R53] authn_endpoint_index::
+S2c-03:::
+S2c-03?
+
+
+=== SSO/MsgFlow
+[R55] Reuse existing IdP session to authenticate at second SP::
+SSO-09:::
+Reuse existing IdP session to authenticate at second SP
+
+
+=== SSO/MsgFlow
+[R58] Expire IDP session after <nnn> s timout::
+PVP-14:::
+Check if timeout intervals as specified by policy are honored (IDP)
+
+
+=== SSO/NamIdFmt
+[R129] Understand AuthnRequest/HTTP-POST with transient NameID::
+S2c-09:::
+Send AuthnRequest/HTTP-POST with transient NameID
+
+
+=== SSO/NamIdFmt
+[R130] Understand AuthnRequest/HTTP-redirect with transient NameID::
+S2c-10:::
+Send AuthnRequest/HTTP-redirect with transient NameID
+
+
+=== SSO/Response
+[R119] The <Response> MUST be signed for the HTTP POST binding::
+SSO-05:::
+Send AuthnRequest
+
+== SP
+
+
+
+
+
+
+=== Attr/ATeGov
+[R4] Understand "chained token" (delegator's attributes)::
+PVP-03:::
+Provide chained token
+
+
+=== Attr/ATeGov
+[R5] Understand optional attributes::
+PVP-04:::
+Provide optional attributes
+
+
+=== Attr/NamIdFmt
+[R7] Support persistent Nameid format::
+PVP-07:::
+AuthnRequest/Response exchange. NameID Policy in request specifies format
+
+
+=== AttrQ/Attr!
+[R3] Understand basic attribute query (duplicate - used in UC PVP-02, S2c-07)::
+PVP-02:::
+Provide minimum data set
+
+
+=== MD/AuthZ
+[R10] MD Signature valid::
+MD-06:::
+Provide invalid Signature (SP)
+<<md_3>>
+
+=== MD/AuthZ
+[R9] Use only fresh metadata::
+MD-05:::
+Provide expired MD (SP)
+
+
+=== MD/CertEx
+[R11] Load signature and TLS certificates from MD::
+MD-07:::
+Required certificates missing in MD (SP)
+
+
+=== MD/Cont
+[R12] Valid roledescriptior exists::
+MD-08:::
+Provide entity without roledescriptor in correct namespace (SP)
+
+
+=== Network
+[R16] TCP connectivity::
+NET-09:::
+Verify TCP connectivity (SP)
+
+
+=== Network
+[R22] Endpoints accept only TLS connectons::
+NET-05:::
+Uonnect without TLS (SP)
+
+
+=== Network
+[R23] Derive TLS certificate from signed metadata::
+NET-06:::
+Use unauthorized certificate (SP)
+
+
+=== Network
+[R24] Accept only valid TLS certificate::
+NET-07:::
+Use invalid certificate (SP)
+
+
+=== Network
+[R25] Use only TLS ciphers satisfying ECRYPT Level 5 or better::
+NET-08:::
+Use weak certificate (on different levels of validation path) (SP)
+
+
+=== SLO/MsgFlow
+[R26] handle IdP-initiated LogoutRequest to SP before the authn Response::
+FL75:::
+?What is expected? send IdP-initiated LogoutRequest to SP before the authn Response.
+
+
+=== SLO/MsgFlow
+[R27] Process IDP-first SLO Request::
+SLO-01:::
+Basic IdP-initated Logout Test
+
+
+=== SLO/Request
+[R28] Accept LogoutRequest with no sessionindex (sent in separate session, no session-cookies)::
+FL71:::
+Send LogoutRequest with no sessionindex (sent in separate session, no session-cookies)
+
+
+=== SLO/Request
+[R29] Accept LogoutRequest with two sesionindexes (first valid) (sent in separate session, no session-cookies)::
+FL72:::
+Send LogoutRequest with two sesionindexes (first valid) (sent in separate session, no session-cookies)
+
+
+=== SLO/Request
+[R30] Accept LogoutRequest with two sesionindexes (second valid) (sent in separate session, no session-cookies)::
+FL73:::
+Send LogoutRequest with two sesionindexes (second valid) (sent in separate session, no session-cookies)
+
+
+=== SLO/Request
+[R31] Accept LogoutRequest with sessionindex in a separate session, not relying on the session-cookie.::
+FL70:::
+Send LogoutRequest with sessionindex in a separate session, not relying on the session-cookie.
+
+
+=== SLO/Request
+[R32] Do not logout user when invalid SessionIndex is sent::
+FL66:::
+Send invalid LogoutRequest without SessionIndex
+
+
+=== SLO/Request
+[R33] Reject LogoutRequest when Destination is wrong::
+FL68:::
+Send LogoutRequest where Destination is wrong
+
+
+=== SLO/Request
+[R34] Reject LogoutRequest when Issuer is wrong::
+FL67:::
+Send LogoutRequest where Issuer is wrong
+
+
+=== SLO/Request
+[R35] Reject LogoutRequest when NameID content is wrong::
+FL63:::
+Send LogoutRequest where NameID content is wrong
+
+
+=== SLO/Request
+[R36] Reject LogoutRequest when NameID@Format is wrong::
+FL64:::
+Send LogoutRequest where NameID@Format is wrong
+
+
+=== SLO/Request
+[R37] Reject LogoutRequest when NameID@SPNameQualifier is wrong::
+FL65:::
+Send LogoutRequest where NameID@SPNameQualifier is wrong
+
+
+=== SLO/Request
+[R40] Require LogoutRequest from IDP to be signed::
+FL69:::
+IDP sends unsigned LogoutRequest
+
+
+=== SLO/Request
+[R41] SP-first SLO Request with Redirect binding::
+FL61:::
+SP sends logout request
+
+
+=== SLO/Request
+[R133] Verify response signature for cryptographic strength::
+PVP-16:::
+Reject Resonse with key or signature algorithm not supported in Metadata
+
+
+=== SLO/Request
+[R133] Verify response signature for cryptographic strength::
+PVP-17:::
+Reject AuthnRequest with key or signature algorithm not supported in Metadata
+
+
+=== SLO/Request
+[R43] Require <Response> to be signed for the HTTP POST binding::
+SLO-04:::
+Check on missing signature
+
+
+=== SSO/AuthnReq
+[R135] Require AuthnRequest to be signed::
+sp-02:::
+Require AuthnRequest to be signed
+
+
+=== SSO/AuthnReq
+[R47] Understand Redirect binding of request::
+SSO-02:::
+Send AuthnRequest using Redirect binding
+
+
+=== SSO/AuthnReq
+[R48] Issue AuthnRequest conforming to SAML-Profiles::
+FL02:::
+? Clarify: Verify various aspects of the generated AuthnRequest message
+
+
+=== SSO/AuthnReq
+[R48] Issue AuthnRequest conforming to SAML-Profiles::
+sp-00:::
+Basic Login test expect HTTP 200 result
+
+
+=== SSO/IDP-Discovery
+[R49] Metadata contains <idpdisc:DiscoveryResponse>::
+DS-1:::
+Check if <idpdisc:DiscoveryResponse> exists
+
+
+=== SSO/IDP-Discovery
+[R50] Remember selected IDP::
+DS-3:::
+Request IDP-selection from discovery service after a previous selection
+
+
+=== SSO/IDP-Discovery
+[R51] Use non-SP discovery service::
+DS-2:::
+Request IDP-selection from discovery service
+
+
+=== SSO/IDP-Discovery
+[R52] Use SP-side discovery service::
+DS-4:::
+Provide IDP-selection at the SP
+
+
+=== SSO/MsgFlow
+[R57] Expire SP session after <nnn> s timout::
+PVP-13:::
+Check if timeout intervals as specified by policy are honored (SP)
+
+
+=== SSO/Response
+[R100] Reject an signed assertion embedded in an AttributeValue inside an unsigned assertion. (Signature moved out...)::
+FL53:::
+Send Response with an signed assertion embedded in an AttributeValue inside an unsigned assertion. (Signature moved out...)
+
+
+=== SSO/Response
+[R101] Reject an signed assertion, where the signature is referring to another assertion.::
+FL54:::
+Send Response with an signed assertion, where the signature is referring to another assertion.
+
+
+=== SSO/Response
+[R102] Reject attributes in unsigned 2nd assertion::
+FL58:::
+Send Response with attributes in unsigned 2nd assertion. (test 2 of 2)
+
+
+=== SSO/Response
+[R103] Reject authnstatement in unsigned 2nd assertion::
+FL59:::
+Send Response with authnstatement in unsigned 2nd assertion. (test 1 of 2)
+
+
+=== SSO/Response
+[R104] Reject multiple AudienceRestrictions where the intersection is zero::
+FL40:::
+Send Response with multiple AudienceRestrictions where the intersection is zero. (test 1 of 2)
+
+
+=== SSO/Response
+[R105] Reject a replayed Response. [Profiles]: 4.1.4.5 POST-Specific Processing Rules (test 1 of 2: inresponseto)::
+FL49:::
+An identical Assertion used a second time (POST-Specific Processing Rules: inresponseto)
+
+
+=== SSO/Response
+[R106] Reject a replayed Response. [Profiles]: 4.1.4.5 POST-Specific Processing Rules (test 2 of 2: unsolicited response)::
+FL50:::
+An identical Assertion used a second time (unsolicited response)
+
+
+=== SSO/Response
+[R107] Reject an ID used in previous request::
+FL48:::
+Send ID used in previous request
+
+
+=== SSO/Response
+[R108] Reject response when the saml-namespace is invalid::
+FL47:::
+Send Response with invalid SAML namespace
+
+
+=== SSO/Response
+[R109] Accept unknown extension element (?)::
+FL46:::
+?Send unknown Extensions element in Response
+
+
+=== SSO/Response
+[R110] Include valid AuthnContextClassRef in assertion::
+PVP-10:::
+Send response with (1) no and (2) an invalid value
+
+
+=== SSO/Response
+[R110] Include valid AuthnContextClassRef in assertion::
+PVP-11:::
+"Send response with each of defined values (1 per Reponse);"
+
+
+=== SSO/Response
+[R112] Require minimum LoA::
+PVP-12:::
+Send insufficient LoA in AuthnContextClassRef for defined Test URL
+
+
+=== SSO/Response
+[R113] NameID format: e-mail::
+FL05:::
+Send NameID with Format: e-mail
+
+
+=== SSO/Response
+[R114] NameID format: other than defined::
+FL06:::
+?Does SP work with unknown NameID Format, such as: foo
+
+
+=== SSO/Response
+[R115] NameID format: persistent::
+FL04:::
+SP should accept a NameID with Format: persistent
+
+
+=== SSO/Response
+[R116] Replayed Assertions MUST NOT be accepted::
+SSO-04:::
+replay Response message
+
+
+=== SSO/Response
+[R117] SP should observe the response status::
+FL03:::
+SP should reject a Response when the StatusCode is not success
+
+
+=== SSO/Response
+[R118] SubjectConfirmationData missing::
+FL07:::
+SP should accept a Response without a SubjectConfirmationData element
+
+
+=== SSO/Response
+[R119] The <Response> MUST be signed for the HTTP POST binding::
+sp-03:::
+Reject unsigned reponse/assertion
+
+
+=== SSO/Response
+[R119] The <Response> MUST be signed for the HTTP POST binding::
+SSO-06:::
+Send Response with broken signature
+
+
+=== SSO/Response
+[R119] The <Response> MUST be signed for the HTTP POST binding::
+SSO-07:::
+Send Response with missing signature
+
+
+=== SSO/Response
+[R119] The <Response> MUST be signed for the HTTP POST binding::
+SSO-08:::
+Send Response with valid signature but invalid key
+
+
+=== SSO/Response
+[R120] ?Tolerate lost RelayState::
+FL45:::
+?Send Reponse without RelayState information
+
+
+=== SSO/Response
+[R121] Unsolicited response messages SHOULD be accepted::
+FL08:::
+Test Harness sends an unsolicited SAML Response message containing a valid assertion (no inresponseto attribute) - OK
+
+
+=== SSO/Response
+[R122] Unsolicited response messages SHOULD NOT be accepted::
+PVP-15:::
+Test Harness sends an unsolicited SAML Response message containing a valid assertion (no inresponseto attribute) - NOK
+
+
+=== SSO/Response
+[R134] Return HTTP 200 range (optionally previous 30x) after valid Response was sent::
+sp-01:::
+Login OK & echo page verification test
+
+
+=== SSO/Response
+[R136] Signatures on response and assertions MUST use a key from metadata IDPSSODescriptor::
+sp-04:::
+Reject siganture with invalid IDP key
+
+
+=== SSO/Response
+[R61] Accept a Response with a Condition with an additional Audience appended::
+FL39:::
+Send Response with a Condition with an additional Audience appended
+
+
+=== SSO/Response
+[R62] Accept a Response with a Condition with an additional Audience prepended::
+FL38:::
+Send Response with a Condition with an additional Audience prepended
+
+
+=== SSO/Response
+[R63] Accept a Response with a SubjectConfirmationData elements with a correct @Address attribute::
+FL20:::
+Send Response with a SubjectConfirmationData elements with a correct @Address attribute
+
+
+=== SSO/Response
+[R64] Accept a Response with multiple SubjectConfirmation elements with /SubjectConfirmationData/@Address-es, where only the first one is correct::
+FL23:::
+Send Response with multiple SubjectConfirmation elements with /SubjectConfirmationData/@Address-es, where only the first one is correct
+
+
+=== SSO/Response
+[R65] Accept a Response with multiple SubjectConfirmation elements with /SubjectConfirmationData/@Address-es, where only the last one is correct::
+FL22:::
+Send Response with multiple SubjectConfirmation elements with /SubjectConfirmationData/@Address-es, where only the last one is correct
+
+
+=== SSO/Response
+[R66] Accept a Response with multiple SubjectConfirmationData elements with /SubjectConfirmationData/@Address-es, where only the first one is correct::
+FL25:::
+SP should accept a Response with multiple SubjectConfirmationData elements with /SubjectConfirmationData/@Address-es, where only the first one is correct
+
+
+=== SSO/Response
+[R67] Accept a Response with multiple SubjectConfirmationData elements with /SubjectConfirmationData/@Address-es,where only the last one is correct::
+FL24:::
+SP should accept a Response with multiple SubjectConfirmationData elements with /SubjectConfirmationData/@Address-es,where only the last one is correct
+
+
+=== SSO/Response
+[R68] Accept a Response with two SubjectConfirmation elements representing two recipients (test 1 of 2, correct one first)::
+FL19:::
+?FL19
+
+
+=== SSO/Response
+[R69] Accept a Response with two SubjectConfirmation elements representing two recipients (test 1 of 2, correct one last)::
+FL18:::
+?FL20
+
+
+=== SSO/Response
+[R70] Accept a Response with two SubjectConfirmationData elements representing two recipients (test 1 of 2, correct one first)::
+FL17:::
+?FL21
+
+
+=== SSO/Response
+[R72] Accept multiple AudienceRestrictions where the intersection includes the correct audience.::
+FL42:::
+Send Response with multiple AudienceRestrictions where the intersection includes the correct audience
+
+
+=== SSO/Response
+[R73] Accept that both the Response and the Assertion is signed::
+FL44:::
+Send Response with both Response and Assertion signed
+
+
+=== SSO/Response
+[R74] Accept that only the Assertion is signed instead of the Response::
+FL43:::
+Send Response with only the Assertion signed
+
+
+=== SSO/Response
+[R75] Accept that only the Response is signed instead of the Assertion::
+FL76:::
+Send Response with only the Response signed
+
+
+=== SSO/Response
+[R77] Accept xs:datetime with millisecond precision http://www.w3.org/TR/xmlschema-2/#dateTime::
+FL34:::
+Send Response with xs:datetime with millisecond precision http://www.w3.org/TR/xmlschema-2/#dateTime
+
+
+=== SSO/Response
+[R78] Does the SP allow the InResponseTo attribute to be missing from the Response element?::
+FL11:::
+?Send Reponse without InResponseTo attribute
+
+
+=== SSO/Response
+[R79] Does the SP allow the InResponseTo attribute to be missing from the SubjectConfirmationData element?::
+FL12:::
+?Send Reponse without InResponseTo attribute in the SubjectConfirmationData element
+
+
+=== SSO/Response
+[R80] Find attributes in a second Assertion/AttributeStatement, not only in one of them (attributes in last)::
+FL56:::
+Include second Assertion/AttributeStatement in Response with attributes in second
+
+
+=== SSO/Response
+[R81] Find attributes in a second Assertion/AttributeStatement, not only in one of them attributes in first)::
+FL55:::
+Include second Assertion/AttributeStatement in Response with attributes in first
+
+
+=== SSO/Response
+[R82] Find attributes in a second AttributeStatement, (attributes in first and second statement)::
+FL51:::
+Include second Assertion/AttributeStatement in Response with attributes in both
+
+
+=== SSO/Response
+[R83] Reject a broken DestinationURL attribute::
+FL13:::
+Send Response with a broken DestinationURL attribute
+
+
+=== SSO/Response
+[R84] Reject a broken DestinationURL attribute in response::
+FL15:::
+Send Response with a broken DestinationURL attribute in response
+
+
+=== SSO/Response
+[R85] Reject a broken Recipient attribute in assertion SubjectConfirmationData/@Recipient::
+FL14:::
+Send Response with a broken Recipient attribute in assertion SubjectConfirmationData/@Recipient
+
+
+=== SSO/Response
+[R86] The values of the ID attribute in a request and the InResponseTo attribute in the corresponding response MUST match.::
+FL09:::
+Send Response with a InResponseTo which is chosen randomly
+
+
+=== SSO/Response
+[R87] Reject a InResponseTo which is chosen randomly (in assertion only)::
+FL10:::
+Send Response with a InResponseTo which is chosen randomly (in assertion only)
+
+
+=== SSO/Response
+[R88] Reject a Response with a AuthnStatement missing::
+FL31:::
+Send Response with a AuthnStatement missing
+
+
+=== SSO/Response
+[R89] Reject a Response with a AuthnStatement where SessionNotOnOrAfter is set in the past::
+FL30:::
+Send Response with a AuthnStatement where SessionNotOnOrAfter is set in the past
+
+
+=== SSO/Response
+[R90] Reject a Response with a Condition with a empty set of Audience.::
+FL36:::
+Send Response with a Condition with a empty set of Audience.
+
+
+=== SSO/Response
+[R91] Reject a Response with a Condition with a NotBefore in the future.::
+FL27:::
+Send Response with a Condition with a NotBefore in the future.
+
+
+=== SSO/Response
+[R92] Reject a Response with a Condition with a NotOnOrAfter in the past.::
+FL28:::
+Send Response with a Condition with a NotOnOrAfter in the past.
+
+
+=== SSO/Response
+[R93] Reject a Response with a Condition with a wrong Audience.::
+FL37:::
+Send Response with a Condition with a wrong Audience.
+
+
+=== SSO/Response
+[R94] Reject a Response with a SubjectConfirmationData elements with an incorrect @Address attribute::
+FL21:::
+Send Response with a SubjectConfirmationData elements with an incorrect @Address attribute
+
+
+=== SSO/Response
+[R95] Reject a Response with a SubjectConfirmationData@NotOnOrAfter in the past::
+FL29:::
+Send Response with a SubjectConfirmationData@NotOnOrAfter in the past
+
+
+=== SSO/Response
+[R96] Reject an assertion containing an unknown Condition::
+FL26:::
+Send Response with an assertion containing an unknown Condition
+
+
+=== SSO/Response
+[R97] Reject an IssueInstant far (24 hours) into the future::
+FL32:::
+Send Response with an IssueInstant far (24 hours) into the future
+
+
+=== SSO/Response
+[R98] Reject an IssueInstant far (24 hours) into the past::
+FL33:::
+Send Response with an IssueInstant far (24 hours) into the past
+
+
+=== SSO/Response
+[R99] Reject an signed assertion embedded in an AttributeValue inside an unsigned assertion.::
+FL52:::
+Send Response with an signed assertion embedded in an AttributeValue inside an unsigned assertion.
+
+
+=== SSO/Session
+[R123] Resistance against session fixation attack::
+FL74:::
+Extract session from URL etc. to hijack session
+
+== Specifications
+
+[md] SAML Metadata with Errata 2.0 WD-0.5
+
+- [[md_2.4]]+++<a href="ref/sstc-saml-metadata-errata-2.0-wd-05.html#a_2_4_Role_Descriptor_Elements">[md_2.4] 2.4 Role Descriptor Elements </a>+++
+- [[md_3]]+++<a href="ref/sstc-saml-metadata-errata-2.0-wd-05.html#a_3_Signature_Processing">[md_3] 3. Signature Processing</a>+++
+    
+[[a_3_4_HTTP_Redirect_Binding]]
+    [[ref/sstc-saml-bindings-errata-2.0-wd-06.html#a_3_4_HTTP_Redirect_Binding]]
