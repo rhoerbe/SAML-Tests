@@ -860,12 +860,3 @@ Send Response with an signed assertion embedded in an AttributeValue inside an u
 FL74:::
 Extract session from URL etc. to hijack session
 
-== Specifications
-
-[md] SAML Metadata with Errata 2.0 WD-0.5
-
-- [[md_2.4]]+++<a href="ref/sstc-saml-metadata-errata-2.0-wd-05.html#a_2_4_Role_Descriptor_Elements">[md_2.4] 2.4 Role Descriptor Elements </a>+++
-- [[md_3]]+++<a href="ref/sstc-saml-metadata-errata-2.0-wd-05.html#a_3_Signature_Processing">[md_3] 3. Signature Processing</a>+++
-    
-[[a_3_4_HTTP_Redirect_Binding]]
-    [[ref/sstc-saml-bindings-errata-2.0-wd-06.html#a_3_4_HTTP_Redirect_Binding]]

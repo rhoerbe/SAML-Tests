@@ -1,0 +1,17 @@
+= Federation Labs SAML Test Case Specifications
+:numbered:
+:toc:
+
+.Abstract
+This document contains a list of test cases for SAML V2.0, suitable for the purposes of testing conformance of implementations of SAML V2.0 with a focus on WebSSO and related profiles.
+
+.Status
+This document is an early proof of concept, subject to later structural changes.
+
+== Introduction
+include::001_Intro_Notation.adoc[]
+
+== SAML V2.0 Implementation Profile
+include::30_SP_test_ops.adoc[]
+include::90_references.adoc[]
+
